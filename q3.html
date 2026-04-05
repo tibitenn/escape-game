@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>解析中...</title>
+
+<style>
+body {
+  background-color: black;
+  color: white;
+  text-align: center;
+  font-family: sans-serif;
+}
+#result {
+  margin-top: 30px;
+  font-size: 24px;
+}
+</style>
+</head>
+
+<body>
+
+<h1>解析中...</h1>
+<p>データを取得しています…</p>
+<progress id="bar" value="0" max="100" style="width:80%; height:30px;"></progress>
+
+<p id="result"></p>
+
+<audio id="sound" src="sound.mp3"></audio>
+
+<script>
+// 音鳴らす（※最初タップ必要な場合あり）
+document.body.addEventListener("click", () => {
+  document.getElementById("sound").play();
+}, { once: true });
+let progress = 0;
+let interval = setInterval(() => {
+  progress++;
+  document.getElementById("bar").value = progress;
+
+  if (progress >= 100) {
+    clearInterval(interval);
+  }
+}, 300);
+
+// 30秒後に結果表示
+setTimeout(() => {
+  document.getElementById("result").innerHTML =
+"【記録3】<br><br>" +
+"ここまで来て、ようやく理解し始めた。<br>" +
+"奴はただの生物じゃない。動きが不自然すぎる。<br><br>" +
+"まるで“探している”ようだ。<br>" +
+"音に反応し、光を避け、確実にこちらの位置を把握してくる。<br><br>" +
+"そして何より……<br>" +
+"あれは閾ｪ豐ｻ莨自治会 繧剃ｻ腕章縺ｦ縺 ◆（解読不可能）<br><br>" +
+".......三つ目の記録として、これだけは残しておく。<br>" +
+"次の数字は<span style='color:red;'>9</span>。<br><br>" +
+"もしこれを読んでいるなら、もう奴はお前を認識している。";
+}, 30000);
+</script>
+
+</body>
+</html>
