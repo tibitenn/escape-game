@@ -1,25 +1,43 @@
-document.getElementById("result").innerHTML =
-"【手記】<br><br>" +
-"○月○日<br><br>" +
-"……状況がよく分からない。<br>" +
-"気がついたら、この見覚えのない施設の中にいた。<br><br>" +
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>解析中...</title>
 
-"とりあえず周囲を調べてみたが、人の気配はない。<br>" +
-"ただ、机の上に置かれていた書類だけが妙に気になった。<br><br>" +
+<style>
+body {
+  background-color: black;
+  color: white;
+  text-align: center;
+  font-family: sans-serif;
+}
+#result {
+  margin-top: 30px;
+  font-size: 24px;
+}
+</style>
+</head>
 
-"その中に、ひとつだけ強く印象に残る数字があった。<br>" +
-"ロッカーの識別番号らしい。<br><br>" +
+<body>
 
-"<span style='color:red;'>131</span><br><br>" +
+<h1>解析中...</h1>
+<p>データを取得しています…</p>
 
-"意味は分からないが、ここで見つけた情報だ。<br>" +
-"無視するわけにはいかない。<br><br>" +
+<p id="result"></p>
 
-"……それにしても、妙だ。<br>" +
-"さっきから、奥の方から嫌な気配がする。<br>" +
-"何かがいるような、そんな感覚だ。<br><br>" +
+<audio id="sound" src="sound.mp3"></audio>
 
-"静かにしていた方がいい。<br>" +
-"理由は分からないが……音を立てるのは危険な気がする。<br><br>" +
+<script>
+// 音鳴らす（※最初タップ必要な場合あり）
+document.body.addEventListener("click", () => {
+  document.getElementById("sound").play();
+}, { once: true });
 
-"もう少し、この場所を調べてみる。";
+// 60秒後に結果表示
+setTimeout(() => {
+  document.getElementById("result").innerHTML = "数字：3";
+}, 60000);
+</script>
+
+</body>
+</html>
